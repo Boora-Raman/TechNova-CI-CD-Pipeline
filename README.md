@@ -5,7 +5,7 @@
 1. **Create Your Own Branch**
 
    * Each member must work in a **personal branch named after yourself**
-     *Example*: `raman-boora`, `ananya-sharma`
+     *Example*: `raman-boora`, `dhruv`,`sidharth`
    * Do **all your work and commits in your own branch**
 
 2. **Raise Pull Requests to `main` When Ready**
