@@ -1,11 +1,10 @@
-FROM node:22-bullseye-slim
+FROM nginx:alpine
 
-WORKDIR /app
+# Remove the default NGINX web content
+RUN rm -rf /usr/share/nginx/html/*
 
-COPY . .
+# Copy your HTML/CSS/JS files to the web server directory
+COPY . /usr/share/nginx/html
 
-RUN npm install
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
+# Expose port 80 for web traffic
+EXPOSE 80
