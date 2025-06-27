@@ -4,7 +4,7 @@
     organization = "Raman-Boora" 
 
     workspaces {     
-      name = "Strapi-Deployment-ECS-workspace" 
+      name = "TechNova-Deployment-ECS-workspace" 
     } 
   }  
 }
