@@ -72,7 +72,10 @@ body{
 }
 .third-container-img{
     height: 600px;
+    width: 500px;
     padding: 70px;
+    object-fit: cover;
+overflow: hidden;
 }
 .third-container-inner-items{
     display: flex;
