@@ -9,9 +9,10 @@
 body{
     min-height: 100vh;
     background-color: #121212;
-    background: url('contact\ us\ bg.png') repeat;
+    background: url('contactus_image.jpg') repeat;
     background-size: cover;
     background-position: center;
+    backdrop-filter: blur(10px);
     
 }
 
