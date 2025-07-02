@@ -9,9 +9,10 @@
 body{
     min-height: 100vh;
     background-color: #121212;
-    background: url('about\ bg\ final.png') repeat;
+    background: url('aboutus_image.jpg') repeat;
     background-size: cover;
     background-position: center;
+    backdrop-filter: blur(10px);
     
 }
 
