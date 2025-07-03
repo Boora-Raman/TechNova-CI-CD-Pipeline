@@ -25,7 +25,7 @@ resource "aws_subnet" "subnet2" {
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
   tags = {
-    Name = "medusa-igw"
+    Name = "technova-igw"
   }
 }
 
