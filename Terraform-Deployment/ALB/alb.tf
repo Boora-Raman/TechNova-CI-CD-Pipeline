@@ -26,9 +26,9 @@ resource "aws_lb_target_group" "TG" {
   deregistration_delay = "300"
 
   health_check {
-    path                = "/"  # Verify path
+    path                = "/home.html"  # Verify path
     protocol            = "HTTP"
-    port = "1337"
+    port = "3000"
     timeout             = 110
     interval            = 115
     healthy_threshold   = 2
