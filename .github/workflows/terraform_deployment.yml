@@ -27,22 +27,22 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform Initialize
-        working-directory: ./Terraform-ECS
+        working-directory: ./Terraform-Deployment
         run: terraform init
 
       - name: Terraform Code Format Validation
-        working-directory: ./Terraform-ECS
+        working-directory: ./Terraform-Deployment
         run: terraform fmt -check
         continue-on-error: true
 
       - name: Terraform Code Validation
-        working-directory: ./Terraform-ECS
+        working-directory: ./Terraform-Deployment
         run: terraform validate
 
       - name: Terraform Plan Status
-        working-directory: ./Terraform-ECS
+        working-directory: ./Terraform-Deployment
         run: terraform plan
 
       - name: Apply Terraform Changes
-        working-directory: ./Terraform-ECS
+        working-directory: ./Terraform-Deployment
         run: terraform apply -auto-approve
