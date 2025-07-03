@@ -15,12 +15,13 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
-  ingress {
-    description                   = "Allow ECS traffic from ALB (port 1337)"
-    from_port                     = 3000
-    to_port                       = 3000
-    protocol                      = "tcp"  # Replace if ALB has a separate SG
-  }
+ingress {
+    description      = "Allow HTTP traffic on port 3000 from anywhere"
+    from_port        = 3000
+    to_port          = 3000
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+}
 
   egress {
     description      = "Allow all outbound traffic"
