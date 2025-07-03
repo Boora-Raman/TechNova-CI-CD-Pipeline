@@ -1,10 +1,10 @@
 resource "aws_security_group" "allow_tls" {
-  name        = "strapi-allow-tls"
+  name        = "technova-allow-tls"
   description = "Allow inbound HTTP and ECS traffic, allow all outbound traffic"
   vpc_id      = aws_vpc.main.id
 
   tags = {
-    Name = "strapi-allow-tls"
+    Name = "technova-allow-tls"
   }
 
   ingress {
