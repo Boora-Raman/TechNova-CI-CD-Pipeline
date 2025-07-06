@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY . .
 
+
 RUN npm install
+
+RUN npm install -g nodemon express mongoose
 
 EXPOSE 3000
 
