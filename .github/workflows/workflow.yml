@@ -29,7 +29,9 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./technova-node-app
-        run: npm install
+        run: |
+          npm install
+          npm install -g nodemon express mongoose
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
