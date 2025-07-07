@@ -36,6 +36,7 @@ resource "aws_iam_policy" "codedeploy_policy" {
                 "sns:Publish",
                 "s3:GetObject",
                 "s3:GetObjectVersion"
+                "iam:PassRole" 
         ],
         Resource = "*"
       }
