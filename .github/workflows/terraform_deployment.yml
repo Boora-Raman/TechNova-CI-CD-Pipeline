@@ -46,7 +46,7 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: Generate AppSpec and Upload to S3
-        working-directory: Deployment_infra
+        working-directory: ./Terraform-Deployment
         run: |
           TASK_ARN=$(terraform output -raw latest_task_definition_arn)
           echo "Task ARN from terraform: $TASK_ARN"
