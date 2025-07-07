@@ -42,7 +42,4 @@ module "codedeploy" {
   codedeploy_role_arn = module.Iam_roles.codedeploy_role_arn
 
 }
-output "dns" {
-    value = module.alb.alb_dns_name
-}
   
