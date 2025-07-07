@@ -3,7 +3,7 @@
     
     organization = "Raman-Boora" 
 
-    workspaces {     
+    workspaces {      
       name = "TechNova-Deployment-ECS-workspace" 
     } 
   }  
