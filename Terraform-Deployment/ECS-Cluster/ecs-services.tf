@@ -5,6 +5,10 @@ resource "aws_ecs_service" "technova-cluster-service" {
   desired_count   = 2 
   launch_type = "FARGATE"
 
+    deployment_controller {
+    type = "CODE_DEPLOY"
+  }
+
   network_configuration {
     subnets          = var.subnet_ids
     security_groups  = var.security_group_id
@@ -18,6 +22,9 @@ resource "aws_ecs_service" "technova-cluster-service" {
     container_name   = "technova"
     container_port   = 3000
   }
+
+    lifecycle {
+    ignore_changes = [task_definition]
+  }
+
 }
-
-
