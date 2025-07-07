@@ -1,5 +1,5 @@
 resource "aws_iam_role" "iam-role" {
-  name = "technova_role"
+  name = "strapi_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -15,13 +15,13 @@ resource "aws_iam_role" "iam-role" {
   })
 
   tags = {
-    tag-key = "technova-role"
+    tag-key = "medusa-role"
   }
 }
 
 resource "aws_iam_policy" "iam-policy" {
   name        = "test-policy"
-  description = "policy for technova-role"
+  description = "A test policy"
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [

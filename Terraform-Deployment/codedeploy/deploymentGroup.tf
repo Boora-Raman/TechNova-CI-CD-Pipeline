@@ -22,11 +22,11 @@ resource "aws_codedeploy_deployment_group" "techonva" {
       }
 
       target_group {
-        name = var.blue-target_group_arn
+        name = var.blue-tg-name
       }
 
       target_group {
-        name = var.green-target_group_arn
+        name = var.green-tg-name
       }
     }
   }
