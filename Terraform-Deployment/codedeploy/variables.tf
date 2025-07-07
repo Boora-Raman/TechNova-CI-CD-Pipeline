@@ -21,3 +21,12 @@ variable "blue-target_group_arn" {
 variable "green-target_group_arn" {
   
 }
+
+
+variable "blue-tg-name" {
+  
+}
+
+variable "green-tg-name" {
+  
+}
