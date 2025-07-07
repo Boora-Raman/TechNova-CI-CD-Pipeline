@@ -8,6 +8,7 @@ module "Vpc-ubnets" {
  
 module "Iam_roles" { 
   source = "./IAM & Roles" 
+
 }
 
 module "alb" {
@@ -16,6 +17,8 @@ module "alb" {
   subnet_ids        = module.Vpc-ubnets.subnet_ids
   security_group_id = toset([module.Vpc-ubnets.allow_tls_sg_id])
 }
+
+
 
 module "ecs" {
   source            = "./ECS-Cluster"
@@ -28,6 +31,17 @@ module "ecs" {
 }
 
 
+module "codedeploy" {
+  source =  "./codedeploy"
+  blue-target_group_arn = module.alb.blue-target_group_arn
+  green-target_group_arn = module.alb.green-target_group_arn
+  cluster-name = module.ecs.cluster-name
+  service-name =module.ecs.service-name
+  listener-arns = module.alb.listener-arns
+
+  codedeploy_role_arn = module.Iam_roles.codedeploy_role_arn
+
+}
 output "dns" {
     value = module.alb.alb_dns_name
 }
