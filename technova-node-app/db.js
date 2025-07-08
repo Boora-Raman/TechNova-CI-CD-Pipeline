@@ -8,7 +8,7 @@ const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://dhruvjoshi1069:cM3TfAyrQ4uzizCq@test.grsdcvo.mongodb.net/?retryWrites=true&w=majority&appName=test"; 
  
 // Database Name
-const dbName = 'my_database';
+const dbName = 'my_database'; 
 
 // Create a new MongoClient
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
