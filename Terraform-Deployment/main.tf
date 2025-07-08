@@ -31,3 +31,42 @@ module "ecs" {
 }
 
 
+module "codedeploy" {
+
+
+  source =  "./codedeploy"
+
+
+  blue-target_group_arn = module.alb.blue-target_group_arn
+
+
+  green-target_group_arn = module.alb.green-target_group_arn
+
+
+  cluster-name = module.ecs.cluster-name
+
+
+  service-name =module.ecs.service-name
+
+
+  listener-arns = module.alb.listener-arns
+
+
+  green-tg-name = module.alb.green-tg-name
+
+
+  blue-tg-name = module.alb.blue-tg-name
+
+
+
+
+
+  codedeploy_role_arn = module.Iam_roles.codedeploy_role_arn
+
+
+
+
+
+}
+
+
