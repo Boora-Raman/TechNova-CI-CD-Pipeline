@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "technova-node-app/"
+      - "technova-node-app/**"
 
 
 env:
