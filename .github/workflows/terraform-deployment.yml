@@ -3,7 +3,7 @@ name: Terraform Code For ECS Deployment
 on:
   push:
     branches:
-      - main
+      - ecs-cluster
     paths:
       - "Terraform-Deployment/**"
 
