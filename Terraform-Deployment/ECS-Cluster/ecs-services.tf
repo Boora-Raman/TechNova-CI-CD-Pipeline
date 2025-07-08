@@ -5,9 +5,6 @@ resource "aws_ecs_service" "technova-cluster-service" {
   desired_count   = 2 
   launch_type = "FARGATE"
 
-    deployment_controller {
-    type = "CODE_DEPLOY"
-  }
 
   network_configuration {
     subnets          = var.subnet_ids
@@ -23,8 +20,5 @@ resource "aws_ecs_service" "technova-cluster-service" {
     container_port   = 3000
   }
 
-  lifecycle {
-    ignore_changes = [task_definition, load_balancer] # Add load_balancer
-  }
 
 }
