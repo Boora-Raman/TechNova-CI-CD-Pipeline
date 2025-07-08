@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "Terraform-Deployment/**"
+      - "Terraform-Deployment./**"
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
