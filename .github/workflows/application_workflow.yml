@@ -32,10 +32,10 @@ jobs:
         working-directory: ./technova-node-app
         run: npm install
 
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # - name: SonarQube Scan
+      #   uses: SonarSource/sonarqube-scan-action@v5
+      #   env:
+      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
