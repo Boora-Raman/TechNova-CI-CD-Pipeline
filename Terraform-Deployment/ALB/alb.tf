@@ -29,10 +29,10 @@ resource "aws_lb_target_group" "TG" {
     path                = "/home.html"  # Verify path
     protocol            = "HTTP"
     port = "3000"
-    timeout             = 110
-    interval            = 115
+    interval            = 25
+    timeout             = 20
     healthy_threshold   = 2
-    unhealthy_threshold = 5
+    unhealthy_threshold = 3
   }
 }
 
