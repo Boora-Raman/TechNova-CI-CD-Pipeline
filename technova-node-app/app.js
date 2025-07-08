@@ -1,7 +1,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); 
 const ejs = require('ejs') 
 const path = require('path');
 const port = 3000
