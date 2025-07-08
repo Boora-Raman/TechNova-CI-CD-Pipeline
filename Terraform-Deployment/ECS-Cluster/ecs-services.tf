@@ -23,8 +23,8 @@ resource "aws_ecs_service" "technova-cluster-service" {
     container_port   = 3000
   }
 
-    lifecycle {
-    ignore_changes = [task_definition]
+  lifecycle {
+    ignore_changes = [task_definition, load_balancer] # Add load_balancer
   }
 
 }
