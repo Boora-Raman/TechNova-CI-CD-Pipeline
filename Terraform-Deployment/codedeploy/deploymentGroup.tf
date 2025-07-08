@@ -35,7 +35,7 @@ resource "aws_codedeploy_deployment_group" "techonva" {
   blue_green_deployment_config {
     terminate_blue_instances_on_deployment_success {
       action                           = "TERMINATE"
-      termination_wait_time_in_minutes = 2
+      termination_wait_time_in_minutes = 1
     }
 
     deployment_ready_option {
