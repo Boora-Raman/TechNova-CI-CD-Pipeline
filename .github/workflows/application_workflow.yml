@@ -17,7 +17,6 @@ jobs:
   build-and-push:
     name: Build & Push Docker Image to Docker Hub
     runs-on: ubuntu-latest
-
     steps:
       - name: Code Checkout For Sonar   
         uses: actions/checkout@v4
@@ -32,6 +31,11 @@ jobs:
       - name: Install Dependencies
         working-directory: ./technova-node-app
         run: npm install
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -128,3 +132,6 @@ jobs:
           git add Terraform-Deployment/ECS-Cluster/ecs-task-definition.tf
           git commit -m "Updated Docker image In Ec2 User Script to ${{ env.IMAGE_TAG }}"
           git push git@github.com:${{ github.repository }}.git HEAD:main
+
+       
+
