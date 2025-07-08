@@ -1,4 +1,4 @@
-name: Terraform Code For ECS Deployment
+name: Terraform Code For Blue-Green Deployment
 
 on:
   push:
