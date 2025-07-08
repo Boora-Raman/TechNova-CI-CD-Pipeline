@@ -23,7 +23,7 @@ resource "aws_lb_target_group" "TG" {
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
   target_type = "ip"
-  deregistration_delay = "300"
+  deregistration_delay = "120"
 
   health_check {
     path                = "/home.html"  # Verify path
