@@ -23,13 +23,13 @@ resource "aws_lb_target_group" "TG" {
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
   target_type = "ip"
-  deregistration_delay = "40"
+  deregistration_delay = "80"
 
   health_check {
     path                = "/home.html"  # Verify path
     protocol            = "HTTP"
     port = "3000"
-    interval            = 40
+    interval            = 50
     timeout             = 30
     healthy_threshold   = 2
     unhealthy_threshold = 3
