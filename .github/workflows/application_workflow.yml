@@ -32,17 +32,6 @@ jobs:
       - name: Install Dependencies
         working-directory: ./technova-node-app
         run: npm install
-      
-      # - name: SonarQube Scan
-      #   uses: SonarSource/sonarqube-scan-action@v5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      # - name: Run Syntax Check
-      #   working-directory: ./technova-node-app
-      #   run: |
-      #     echo "Syntax check passed (Add lint/test if needed)"
-      #     # npm run lint or npm run test
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
