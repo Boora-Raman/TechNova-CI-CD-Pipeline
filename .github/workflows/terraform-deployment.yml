@@ -5,8 +5,15 @@ on:
     branches:
       - main
     paths:
-      - "Terraform-Deployment./**"
-
+      - "Terraform-Deployment/ALB/**"
+      - "Terraform-Deployment/IAM & Roles/**"
+      - "Terraform-Deployment/VPC & SG/**"
+      - "Terraform-Deployment/codedeploy/**"
+      - "Terraform-Deployment/backend.tf"
+      - "Terraform-Deployment/destroy.txt"
+      - "Terraform-Deployment/main.tf"
+      - "Terraform-Deployment/output.tf"
+            
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
