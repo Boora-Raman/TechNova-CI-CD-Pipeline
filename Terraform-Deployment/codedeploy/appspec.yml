@@ -1,9 +1,0 @@
-version: 0.0
-Resources:
-  - TargetService:
-      Type: AWS::ECS::Service
-      Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:647198474080:task-definition/strapi:1"
-        LoadBalancerInfo:
-          ContainerName: "technova"
-          ContainerPort: 3000
