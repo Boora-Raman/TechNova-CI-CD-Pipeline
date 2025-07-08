@@ -1,11 +1,11 @@
 output "blue-target_group_arn" {
   description = "ARN of the target group"
-  value       = aws_lb_target_group.TG[0].arn
+  value       = aws_lb_target_group.technova_blue_tg.arn
 }
 
 output "green-target_group_arn" {
   description = "ARN of the target group"
-  value       = aws_lb_target_group.TG[1].arn
+  value       = aws_lb_target_group.technova_green_tg.arn
 }
 
 output "alb_dns_name" {
@@ -19,10 +19,10 @@ output "listener-arns" {
 
 output "blue-tg-name" {
   description = "ARN of the target group"
-  value       = aws_lb_target_group.TG[0].name
+  value       = aws_lb_target_group.technova_blue_tg.name
 }
 
 output "green-tg-name" {
   description = "ARN of the target group"
-  value       = aws_lb_target_group.TG[1].name
+  value       = aws_lb_target_group.technova_green_tg.name
 }
