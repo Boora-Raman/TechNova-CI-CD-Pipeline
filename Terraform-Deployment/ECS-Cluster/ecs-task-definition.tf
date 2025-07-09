@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "TD" {
   container_definitions = jsonencode([
     {
       name  = "technova"
-      image = "booraraman/technova-app:e3c72f01f17f9f6f3f58a1fe89b7a44eb0f76485"
+      image = "booraraman/technova-app:24ae489fee2d4edad48d5fce61a26a467a48f5df"
       essential = true
       portMappings = [
         {
