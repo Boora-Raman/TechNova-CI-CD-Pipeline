@@ -2,10 +2,10 @@ resource "aws_ecs_service" "technova-cluster-service" {
   name            = "cluster-service"
   cluster         = aws_ecs_cluster.technova-cluster.id
   task_definition = aws_ecs_task_definition.TD.arn
-  desired_count   = 2 
-  launch_type = "FARGATE"
+  desired_count   = 2
+  launch_type     = "FARGATE"
 
-    deployment_controller {
+  deployment_controller {
     type = "CODE_DEPLOY"
   }
 
@@ -14,17 +14,10 @@ resource "aws_ecs_service" "technova-cluster-service" {
     security_groups  = var.security_group_id
     assign_public_ip = true
   }
-    health_check_grace_period_seconds = 380
-  
 
-  load_balancer {
-    target_group_arn = var.target_group_arn
-    container_name   = "technova"
-    container_port   = 3000
-  }
+  health_check_grace_period_seconds = 380
 
   lifecycle {
-ignore_changes = [task_definition, load_balancer] # Add load_balancer
+    ignore_changes = [task_definition] # Just ignore task_definition changes
   }
-
 }
