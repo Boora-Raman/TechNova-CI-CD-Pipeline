@@ -24,7 +24,7 @@ resource "aws_ecs_service" "technova-cluster-service" {
   }
 
   lifecycle {
-    ignore_changes = [task_definition, load_balancer] # Add load_balancer
+    ignore_changes = [task_definition] # Add load_balancer
   }
 
 }
