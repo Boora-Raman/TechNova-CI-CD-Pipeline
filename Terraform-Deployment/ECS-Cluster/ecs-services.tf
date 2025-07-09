@@ -15,9 +15,20 @@ resource "aws_ecs_service" "technova-cluster-service" {
     assign_public_ip = true
   }
 
+ load_balancer {
+
+    target_group_arn = var.target_group_arn
+
+    container_name   = "technova"
+
+    container_port   = 3000
+
+
+  }
+
   health_check_grace_period_seconds = 380
 
   lifecycle {
-    ignore_changes = [task_definition] # Just ignore task_definition changes
+    ignore_changes = [task_definition,load_balancer] # Just ignore task_definition changes
   }
 }
