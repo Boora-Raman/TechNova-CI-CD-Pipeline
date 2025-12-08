@@ -37,37 +37,37 @@ jobs:
         working-directory: ./Terraform-Deployment
         run: terraform apply -auto-approve
 
-      - name: Generate AppSpec and Upload to S3
-        working-directory: ./Terraform-Deployment
-        run: |
-          TASK_ARN=$(terraform output -raw latest_task_definition_arn)
-          echo "Task ARN from terraform: $TASK_ARN"
-          if [ -z "$TASK_ARN" ]; then
-            echo "Error: TASK_ARN is empty!"
-            exit 1
-          fi
+      # - name: Generate AppSpec and Upload to S3
+      #   working-directory: ./Terraform-Deployment
+      #   run: |
+      #     TASK_ARN=$(terraform output -raw latest_task_definition_arn)
+      #     echo "Task ARN from terraform: $TASK_ARN"
+      #     if [ -z "$TASK_ARN" ]; then
+      #       echo "Error: TASK_ARN is empty!"
+      #       exit 1
+      #     fi
           
-          cat <<EOF > appspec.yaml
-          version: 1
-          Resources:
-            - TargetService:
-                Type: AWS::ECS::Service
-                Properties:
-                  TaskDefinition: $TASK_ARN
-                  LoadBalancerInfo:
-                    ContainerName: "technova"
-                    ContainerPort: 3000
-          EOF
+      #     cat <<EOF > appspec.yaml
+      #     version: 1
+      #     Resources:
+      #       - TargetService:
+      #           Type: AWS::ECS::Service
+      #           Properties:
+      #             TaskDefinition: $TASK_ARN
+      #             LoadBalancerInfo:
+      #               ContainerName: "technova"
+      #               ContainerPort: 3000
+      #     EOF
 
-          echo "Generated AppSpec content:"
-          cat appspec.yaml
+      #     echo "Generated AppSpec content:"
+      #     cat appspec.yaml
 
-          aws s3 cp appspec.yaml s3://${S3_BUCKET}/appspec.yaml || { echo "Failed to upload AppSpec to S3"; exit 1; }
+      #     aws s3 cp appspec.yaml s3://${S3_BUCKET}/appspec.yaml || { echo "Failed to upload AppSpec to S3"; exit 1; }
 
-      - name: Trigger CodeDeploy Deployment
-        run: |
-          aws deploy create-deployment \
-            --application-name $CODEDEPLOY_APP \
-            --deployment-group-name $CODEDEPLOY_GROUP \
-            --s3-location bucket=$S3_BUCKET,bundleType=YAML,key=appspec.yaml \
-            --description "Deploying latest task" || { echo "CodeDeploy deployment failed"; exit 1; }
+      # - name: Trigger CodeDeploy Deployment
+      #   run: |
+      #     aws deploy create-deployment \
+      #       --application-name $CODEDEPLOY_APP \
+      #       --deployment-group-name $CODEDEPLOY_GROUP \
+      #       --s3-location bucket=$S3_BUCKET,bundleType=YAML,key=appspec.yaml \
+      #       --description "Deploying latest task" || { echo "CodeDeploy deployment failed"; exit 1; }
