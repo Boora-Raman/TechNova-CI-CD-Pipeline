@@ -28,7 +28,4 @@ resource "aws_ecs_service" "technova-cluster-service" {
 
   health_check_grace_period_seconds = 380
 
-  lifecycle {
-    ignore_changes = [task_definition,load_balancer] # Just ignore task_definition changes
-  }
 }
